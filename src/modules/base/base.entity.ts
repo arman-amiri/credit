@@ -8,7 +8,7 @@ const tehranNowSql = () =>
 
 export class BaseEntity {
   @Column({
-    name: 'createdAt',
+    name: 'created_at',
     type: 'datetime2', // Use datetime2 instead of datetime
     precision: 0, // Reduced precision to save storage (datetime2(0) takes 6 bytes)
     select: false,
@@ -17,7 +17,7 @@ export class BaseEntity {
   createdAt: Date;
 
   @Column({
-    name: 'updatedAt',
+    name: 'updated_at',
     type: 'datetime2', // Use datetime2 instead of datetime
     precision: 0, // Reduced precision to save storage (datetime2(0) takes 6 bytes)
     select: false,
@@ -28,7 +28,7 @@ export class BaseEntity {
   updatedAt: Date;
 
   @Column({
-    name: 'deletedAt',
+    name: 'deleted_at',
     type: 'datetime2', // Use datetime2 instead of datetime
     precision: 0, // Reduced precision to save storage (datetime2(0) takes 6 bytes)
     select: false,
