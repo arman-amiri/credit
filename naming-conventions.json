@@ -1,0 +1,51 @@
+{
+  "namingConventions": {
+    "variablesAndFunctions": {
+      "format": "camelCase",
+      "examples": ["userService", "getUserById", "isTokenValid"],
+      "reason": "Standard for JavaScript/TypeScript readability"
+    },
+    "classesAndDTOsAndEnums": {
+      "format": "PascalCase",
+      "examples": [
+        "UserService",
+        "CreateUserDto",
+        "UserEntity",
+        "UserRoleEnum"
+      ],
+      "reason": "OOP best practice for types and classes"
+    },
+    "fileNames": {
+      "format": "kebab-case",
+      "examples": [
+        "user.controller.ts",
+        "create-user.dto.ts",
+        "user.module.ts"
+      ],
+      "reason": "Improves readability in file systems and works well in Unix-based environments"
+    },
+    "foldersAndModules": {
+      "format": "kebab-case",
+      "examples": ["user/", "auth/", "profile/"],
+      "reason": "Keeps folder structure consistent and readable"
+    },
+    "databaseTables": {
+      "format": "snake_case (plural)",
+      "examples": ["users", "user_profiles", "order_items"],
+      "reason": "SQL convention; aligns with TypeORM and cross-database tools"
+    },
+    "databaseColumns": {
+      "format": "snake_case",
+      "examples": ["created_at", "updated_at", "user_id"],
+      "reason": "SQL best practices for field naming",
+      "is_": "for boolean",
+      "at_": "for data",
+      "on_": "for date and time"
+    },
+    "notes": [
+      "Use clear, descriptive names. Avoid abbreviations like 'usr' instead of 'user'.",
+      "Suffix DTO classes with 'Dto', and entity classes with 'Entity'.",
+      "Keep module/folder names short, meaningful, and domain-specific."
+    ]
+  }
+}
