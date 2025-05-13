@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './modules/user/user.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ErrorLogModule } from './modules/error-log/error-log.module';
 import typeormConnection from './config/typeorm.connection';
 
 @Module({
@@ -18,6 +19,8 @@ import typeormConnection from './config/typeorm.connection';
       inject: [ConfigService],
       useFactory: typeormConnection().useFactory,
     }),
+
+    ErrorLogModule,
   ],
   controllers: [],
   providers: [],

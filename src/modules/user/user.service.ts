@@ -1,11 +1,22 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import handelError from 'src/utility/handel-error';
 
 @Injectable()
 export class UserService {
   create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+    try {
+      // throw new Error('اطلاعات وارد شده صحیح نیست');
+      throw new BadRequestException('کاربر یافت نشد');
+      // return 'This action adds a new user';
+    } catch (error: unknown) {
+      handelError(error);
+    }
   }
 
   findAll() {
