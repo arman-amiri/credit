@@ -14,7 +14,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
   // LoggerService را به طور خودکار از NestJS دریافت می‌کنیم
   constructor(private readonly errorLogService: ErrorLogService) {}
 
-  async catch(exception: unknown, host: ArgumentsHost) {
+   catch(exception: unknown, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const req = ctx.getRequest<Request>();
     const res = ctx.getResponse<Response>();
