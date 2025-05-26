@@ -9,7 +9,7 @@ export class ErrorLogService {
     @InjectRepository(ErrorLog)
     private readonly errorLogRepository: Repository<ErrorLog>,
   ) {}
-  async create(createErrorLogDto: {
+   create(createErrorLogDto: {
     method: string;
     url: string;
     status: number;
@@ -20,10 +20,28 @@ export class ErrorLogService {
     requestParams: string;
   }) {
     console.log(createErrorLogDto, 'createErrorLogDto');
+    const {
+      message,
+      method,
+      requestBody,
+      requestParams,
+      requestQuery,
+      stack,
+      status,
+      url,
+    } = createErrorLogDto;
+    const log = this.errorLogRepository.create({
+      method,
+      url,
+      status,
+      message,
+      stack: stack ? stack : '',
+      requestBody,
+      requestQuery,
+      requestParams,
+    });
 
-    // await this.errorLogRepository.create({
-    //   message: createErrorLogDto.message,
-    // });
+    this.errorLogRepository.save(log);
     return 'This action adds a new errorLog';
   }
 }

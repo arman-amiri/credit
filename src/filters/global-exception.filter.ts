@@ -33,7 +33,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     console.log(message, 'message');
     const stack = exception instanceof Error ? exception.stack : null;
 
-    await this.errorLogService.create({
+    this.errorLogService.create({
       method: req.method,
       url: req.url,
       status,
@@ -46,7 +46,8 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 
     res.status(status).json({
       statusCode: status,
-      message: typeof message === 'string' ? message : (message as Error).message,
+      message:
+        typeof message === 'string' ? message : (message as Error).message,
       //   path: req.url,
       timestamp: new Date().toISOString(),
     });
